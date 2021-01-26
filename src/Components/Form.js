@@ -4,7 +4,6 @@ import axios from "axios";
 
 import bg_desktop from "../Assets/bg-shorten-desktop.svg";
 import bg_mobile from "../Assets/bg-shorten-mobile.svg";
-import { shorten } from '../Controllers/Api';
 import { LinkContext } from '../Context/Context';
 
 const Wrapper = styled.div`
@@ -31,8 +30,11 @@ const FormContainer = styled.div`
   background-size: cover;
   /* background-image: ${props => props.ImgDesktop}; */
 
-  @media (max-width: 375px) {
+  @media (max-width: 786px) {
     width: 90%;
+  }
+
+  @media (max-width: 375px) {
     flex-direction: column;
     padding: 20px 10px;
   }
@@ -95,23 +97,21 @@ const Form = () => {
   const [value, setvalue] = useState("");
   const [loading, setLoading] = useState(false);
   const [links , setLinks] = useContext(LinkContext);
-  const [link, setLink] = useState({
-    code: '',
-    shortLink: '',
-  })
 
   const GetShortLink = (value) => {
+    setLoading(true);
     axios.get(`/shorten?url=${value}`)
     .then(response => {
-      // checkResponse();
-      if(!response.ok) {
-        return false;
+      const {data: { result }} = response;
+      let newLink = {
+        code: result.code,
+        copied: false,
+        original_link: result.original_link,
+        short_link: result.short_link,
       }
-      console.log(response);
-      const newLink = response.resilt;
-      const array = [...links];
-      array.push(newLink);
-      setLinks([]);
+      const array = [...links, newLink];
+      setLinks(array);
+      setLoading(false);
     }).catch(err => console.log(err));
   }
   
@@ -120,7 +120,9 @@ const Form = () => {
     <Wrapper>
       <FormContainer ImgDesktop={bg_desktop} ImgMobile={bg_mobile}>
         <FormInput value={value} onChange={e => setvalue(e.target.value)} />
-        <Button disabled={loading} onClick={() => GetShortLink(value)}>Shorten It</Button>
+        <Button disabled={loading} onClick={() => GetShortLink(value)}>
+          {loading ? "Please Wait" : "Shorten It"}
+        </Button>
         <Info>Please add a link</Info>
         {/* <Info 
         >Please add a link</Info> */}

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from "styled-components";
-import Cards from './Cards';
+import { LinkContext } from '../../Context/Context';
+import CardsWrapper from './CardsWrapper';
 import CardTitle from './CardTitle';
 import Results from './Results';
+
 
 const Container = styled.div`
   width: 100%;
@@ -13,16 +15,16 @@ const Container = styled.div`
 `;
 
 
-
-
 const Description = () => {
+  const [links , setLinks] = useContext(LinkContext);  
+
   return ( 
     <Container>
-      <Results  />
-      <Results  />
-      <Results  />
+      {(links.length !== 0) && links.map((link,index) => (
+        <Results key={index} index={index} copied={link.copied} original_link={link.original_link} code={link.code} shortLink={link.short_link} />
+      ))}
       <CardTitle />
-      <Cards />
+      <CardsWrapper />
     </Container>
    );
 }

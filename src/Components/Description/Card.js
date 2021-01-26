@@ -15,7 +15,9 @@ const CardWrapper = styled.div`
   z-index: 10;
   text-align: left;
 
-  ${props => {
+
+  @media (min-width: 375px) {
+    ${props => {
     switch (props.position) {
       case "top": 
         return `align-self: flex-start`;
@@ -28,9 +30,13 @@ const CardWrapper = styled.div`
           return 0;
     }
   }}
+  }
+  
 
-  @media (max-height: 375px) {
+  @media (max-width: 375px) {
     width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
   }
 
 `;
@@ -48,18 +54,41 @@ const Motif = styled.div`
   background-color: ${props => props.theme.Dark_Violet};
   background-position: center;
   background-repeat: no-repeat;
+
+  @media (max-width: 786px) {
+    width: 70px;
+  height: 70px;
+  }
+
+  @media  (max-width: 375px) {
+    margin: 0 auto;
+  }
 `;
 
 
 
 const Title = styled.h3`
   color: ${props => props.theme.Very_dark_Blue};
+
+  @media (max-width: 786px) {
+    font-size: 1em;
+  }
+
+  @media (max-width: 375px) {
+    margin-bottom: 10px;
+  }
 `;
 
 
 const Text = styled.p`
   color: ${props => props.theme.Gray};
+
+  @media (max-width: 786px) {
+    font-size: 0.8em;
+  }
 `;
+
+
 const Card = ({text, title, position}) => {
   return ( 
     <CardWrapper position={position}>

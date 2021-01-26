@@ -3,30 +3,42 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   display: flex;
-  flex-grow: 2;
-  height: 300px;
+  flex-grow: 1;
+  height: auto;
 
-  @media (max-height: 375px) {
-    width: 100%;
+  @media (max-width: 786px) {
+    padding-bottom: 20px;
+  }
+  
+  @media (max-width: 375px) {
     flex-direction: column;
-    flex-wrap: wrap;
+    padding-bottom: 0px;
   }
 `;
 
 const Section = styled.div`
   width: 100%;
   text-align: left;
+
+  @media (max-width: 786px) {
+    text-align: center;
+  }
 `;
 
 const Title = styled.h5`
   color: white;
   font-size: 1em;
+
+  @media (max-width: 375px) {
+    margin: 20px 0px;
+  }
+
 `;
 
 const LinkItem = styled.li`
   cursor: pointer;
   list-style-type: none;
-  color: white;
+  color: ${props => props.theme.Gray};
   font-size: 0.8em;
   margin: 10px 0px;
 

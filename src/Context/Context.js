@@ -3,7 +3,12 @@ import React,{useState, createContext} from 'react';
 export const LinkContext = createContext();
 
 export const LinkProvider = props => {
-  const [links, setLinks] = useState(["cc", "sccac"]);
+  const [links, setLinks] = useState([{
+    code: "nc",
+    short_link: "jvnsd",
+    original_link: "ascas",
+    copied: false,
+  }]);
   
   return (
     <div>
@@ -13,3 +18,5 @@ export const LinkProvider = props => {
     </div>
   )
 }
+
+export default LinkProvider;

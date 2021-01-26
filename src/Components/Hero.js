@@ -8,6 +8,10 @@ const Container =  styled.div`
   display: grid;
   padding-bottom: 100px;
   grid-template-columns: 50% 50%;
+
+  @media (max-width: 375px) {
+    grid-template-columns: 100%;
+  }
 `;
 
 const Section = styled.div`

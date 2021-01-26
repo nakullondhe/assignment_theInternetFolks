@@ -24,6 +24,10 @@ const Body = styled.div`
 const Heading = styled.h1`
   color: white;
   font-size: 2.5em;
+
+  @media (max-width: 375px) {
+    font-size: 1.5em;
+  }
 `;
 
 const CTAButton = styled.button`

@@ -7,10 +7,18 @@ const Wrapper = styled.div`
   width: 70%;
   height: 300px;
   margin: 0 auto;
+  padding: 10px 0px;
   justify-content: space-between;
 
-  @media (max-height : 375px) {
-    display: inline;
+
+  @media (max-width : 786px) {
+    width: 90%;
+  }
+
+  @media (max-width : 375px) {
+    flex-direction: column;
+    height: auto;
+  padding: 0px;
   }
 
 `;
@@ -22,9 +30,15 @@ const HorizontalLine = styled.div`
   align-self: center;
   position: absolute;
   background-color: ${(props) => props.theme.Cyan};
+
+  @media  (max-width: 375px) {
+    margin: 0 auto;
+    width: 10px;
+    height: 100%;
+  }
 `;
 
-const Cards = () => {
+const CardsWrapper = () => {
   return (
     <Wrapper>
       <HorizontalLine />
@@ -51,4 +65,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default CardsWrapper;

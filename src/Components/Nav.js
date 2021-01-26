@@ -18,7 +18,7 @@ const NavInner = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 375px) {
+  @media (max-width: 786px) {
     width: 100%;
   }
 `;
@@ -27,7 +27,7 @@ const NavSection =  styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width: 375px) {
+  @media (max-width: 786px) {
     padding: 0px 10px;  
   }
 `;
@@ -36,6 +36,10 @@ const Logo = styled.img.attrs(props => ({
   src: props.Img,
 }))`
   margin-right: 1em;
+
+  @media (max-width: 680px) {
+    width: 100px;
+  }
 `;
 
 const NavItem = styled.li`
@@ -50,6 +54,9 @@ const NavItem = styled.li`
     color: ${props => props.theme.Very_dark_violet};
   }
 
+  @media (max-width: 680px) {
+    font-size: 0.8em;
+  }
   @media (max-width: 375px) {
     display: none;
   }

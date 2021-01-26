@@ -8,6 +8,7 @@ const Container = styled.div`
   width: 100%;
   height: auto;
   padding: 50px 0;
+  padding-bottom: 20px;
   background-color: ${props => props.theme.Very_dark_violet};
 `;
 
@@ -18,7 +19,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
 
-  @media (max-width: 375px) {
+  @media (max-width: 786px) {
     width: 90%;
     flex-direction: column;
   }
@@ -28,24 +29,40 @@ const LogoContainer = styled.div`
 flex-grow: 1;
 text-align: left;
 
-@media (max-height: 375px) {
+@media (max-width: 786px) {
   text-align:  center;
+  display: flex;
+  justify-content: center;
 }
 
 `;
 
-const Social = styled.div`
-display: flex;
-justify-content: space-around;
-flex-grow: 1;
-
-padding: 0px 20px;
-`;
-
 const Svg = styled(Icon)`
   fill: white;
-  
+  width: 100%;
+  @media (max-width: 786px) {
+    margin-bottom: 20px;
+    width: 120px;
+    height: 3em;
+  }
 `;
+
+const Social = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+
+  padding: 0px 20px;
+
+  @media (max-width: 786px) {
+  padding: 20px 20px;
+  }
+  @media (max-width: 375px) {
+    margin: 20px auto;
+    width: 70%;
+  }
+`;
+
 
 const IconSocial = styled(Icon)`
   cursor: pointer;
