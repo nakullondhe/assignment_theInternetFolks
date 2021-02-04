@@ -15,7 +15,7 @@ const FormContainer = styled.div`
   height: auto;
   margin: 0 auto;
   margin-bottom: -70px;
-  padding: 40px 30px 30px 30px;
+  padding: 10px 10px 10px 10px;
   border-radius: 8px;
   z-index: 10;
 
@@ -66,7 +66,7 @@ const FormInput = styled.input.attrs(props => ({
 `;
 
 const Button = styled.button`
-  width:15%;
+  width:18%;
   padding: 1em;
   border-radius: 8px;
   border: 3px solid transparent;
